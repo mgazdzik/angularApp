@@ -1,0 +1,13 @@
+<h3>{{menuCtrl.title}}</h3>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse">
+            <ul>
+                <li ng-repeat="item in menuCtrl.items"
+                    ng-class="{active: menuCtrl.menuIndex.isActive($index)}">
+                    <a ng-click="menuCtrl.menuIndex.setActive($index)">{{item.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
