@@ -3,30 +3,21 @@
 (function () {
     var app = angular.module('panels', ['services']);
 
-    app.directive('drawPanels', ['panelsFactory', 'menuIndex', function (panelsFactory, menuIndex) {
+    app.directive('drawPanels', ['panelContentFactory', 'menuIndex',
+        function (panelContentFactory, menuIndex) {
         return {
             restrict: 'E',
             templateUrl: 'app/main/panels.html',
             controller: function () {
                 this.menuIndex = menuIndex;
-                this.panels = panelsFactory;
+                this.panel = panelContentFactory;
             },
             controllerAs: "panelsCtrl"
         };
-
     }]);
 
-    app.factory("panelsFactory", function () {
-        return [
-            {
-                content: 'zawartosc 1...'
-            },
-            {
-                content: 'zawartosc 2...'
-            },
-            {
-                content: 'zawartosc 3...'
-            }
-        ]
-    });
+    app.factory("panelContentFactory", ['$http', 'contentImporter',
+        function ($http, contentImporter) {
+        return contentImporter.getContent();
+    }]);
 })();

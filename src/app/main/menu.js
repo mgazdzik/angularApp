@@ -19,16 +19,13 @@
     app.factory('menuItemsFactory', function () {
         var items = [
             {
-                name: "abc",
-                href: "http://google.com"
+                name: "Tab 1"
             },
             {
-                name: "bcde",
-                href: "http://google.com"
+                name: "Tab 2"
             },
             {
-                name: "cefalo",
-                href: "http://google.com"
+                name: "Tab 3"
             }
         ];
         return items;

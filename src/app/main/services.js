@@ -3,8 +3,10 @@
 (function () {
     var app = angular.module('services', []);
     app.service('menuIndex', [menuItemIndex]);
+    app.service('contentImporter', ['menuIndex', contentImporter]);
 
     function menuItemIndex() {
+
         this.currentIndex = 0;
 
         this.setActive = function (index) {
@@ -17,5 +19,12 @@
 
     };
 
+    function contentImporter(menuIndex) {
+        this.getContent = function () {
+            return {
+                content: "qwerty" + ' ' + menuIndex.currentIndex,
+            };
+        };
+    }
 
 })();
